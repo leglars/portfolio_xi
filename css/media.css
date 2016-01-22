@@ -1,7 +1,7 @@
 @media (max-width: 1260px) {
-    #header {
+    .header {
         padding: 6em 3em 3em 3em;
-        width: 30%;
+        left: -50%;
         min-width: 18em;
     }
 
@@ -28,8 +28,11 @@
     }
 
     footer {
-        width: 30%;
         padding: 0 4em 6em 0;
         min-width: 18em;
+    }
+
+    .headerExtend {
+        left: 0;
     }
 }

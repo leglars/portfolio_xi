@@ -1,24 +1,36 @@
 
 body {
     font-size: 16px;
+    min-width: 960px;
 }
 
-#header {
+.header {
     background-color: #1f1815;
     background-attachment: scroll,	fixed;
-    background-image: url("../image/bg.jpg");
-    background-position: top left,	top left;
+    background-image: url("../image/bg4.jpg");
+    background-position: top right;
     background-repeat: repeat,	no-repeat;
-    background-size: auto,	auto 100%;
+    background-size: auto, auto, 100%;
     color: rgba(255, 255, 255, 0.5);
     height: 100%;
-    left: 0;
+
     padding: 8em 3em 0 0;
     position: fixed;
     text-align: right;
     top: 0;
-    width: 35%;
+    width: 80%;
+    /*left:0;*/
+    left: -45%;
+    z-index: 10000;
     box-sizing: border-box;
+    -moz-transition: left 1s ease-in-out;
+    -webkit-transition: left 1s ease-in-out;
+    -o-transition: left 1s ease-in-out;
+    -ms-transition: left 1s ease-in-out;
+}
+
+.headerExtend {
+    left: 0;
 }
 
 #main {
@@ -38,10 +50,108 @@ nav {
     width: 2em;
     height: 100%;
     box-sizing: border-box;
-    background: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center 2em;
+    /*background-color: #000000;*/
 }
 
-#header .image.avatar {
+#navBack {
+    z-index: 99;
+    background-image: url("../image/nav.png");
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center top;
+    /*background-color: #000000;*/
+}
+
+.nav {
+    display: block;
+    position: fixed;
+    top: 2em;
+    right: 0;
+    height: calc(100% - 2em);
+    width: 2em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: rgba(256, 256, 256, 0);
+    padding: 0;
+}
+
+#display {
+    z-index: 1;
+}
+
+#interaction {
+    z-index: 100;
+}
+
+ul.nav li {
+    margin-left: 0.13em;
+    width: 1em;
+    border-radius: 0.2em;
+    display: block;
+    transition: opacity 0.2s ease-in-out;
+    -webkit-transition: opacity 0.2s ease-in-out;
+}
+
+ul#display li {
+    opacity: 0;
+}
+
+.de {
+    height: 150px;
+}
+
+.mp {
+    margin-top: 6px;
+    height: 99px;
+}
+
+.p {
+    margin-top:2px;
+    height: 47px;
+}
+
+.port {
+    margin-top: 10px;
+    height: 78px;
+}
+
+.cr {
+    margin-top: 6px;
+    height: 140px;
+}
+
+#display .de {
+    background-color: #49bf9d;
+}
+
+#display .mp {
+    background-color: aqua;
+}
+
+#display .p {
+    background-color: cadetblue;
+}
+
+#display .port {
+    background-color: cyan;
+}
+
+#display .cr {
+    background-color: forestgreen;
+}
+
+#interaction li {
+    cursor: pointer;
+}
+
+.active {
+    visibility: visible;
+}
+
+.header .image.avatar {
     margin: 0 0 1em 0;
     width: 100px;
 }
@@ -51,7 +161,7 @@ nav {
     width: 100%;
 }
 
-#header .button {
+.header .button {
     line-height: 2em;
     min-width: 10em;
     padding: 0 1em;
@@ -60,13 +170,21 @@ nav {
     border-color:rgba(255, 255, 255, 0.5);
 }
 
-#header .button:hover {
+.header .button:hover {
     border-color: #49bf9d;
     color: #49bf9d !important;
 }
 
-#header ul {
+.header ul {
     margin-top: 4em;
+}
+
+#collapse_li {
+    display: none;
+}
+
+#extend_li {
+    display: inline-block;
 }
 
 a {
@@ -156,19 +274,19 @@ ul li {
     padding-left: 0.5em;
 }
 
-ul.actions {
+ul.btn {
     cursor: default;
     list-style: none;
     padding-left: 0;
 }
 
-ul.actions li {
+ul.btn li {
     display: inline-block;
     padding: 0 1em 0 0;
     vertical-align: middle;
 }
 
-ul.actions li:last-child {
+ul.btn li {
     padding-right: 0;
 }
 
@@ -177,6 +295,7 @@ ul.actions li:last-child {
     border: 0;
     display: inline-block;
     position: relative;
+    text-align: center;
 }
 
 .image img {
@@ -192,6 +311,10 @@ ul.actions li:last-child {
 
 .image.fit img {
     width: 100%;
+}
+
+.image.small {
+    width: 50%
 }
 
 
@@ -236,6 +359,13 @@ hr {
     margin: 2em 0;
 }
 
+blockquote {
+    border-left: solid 6px #efefef;
+    font-style: italic;
+    margin: 0 0 2em 0;
+    padding: 0.5em 0 0.5em 1.5em;
+    quotes:none;
+}
 
 
 
@@ -243,11 +373,11 @@ hr {
 /* ========= Footer ==========*/
 footer {
     bottom: 0;
-    left: 0;
+    right: 0;
     padding: 0 4em 6em 0;
-    position: fixed;
+    position: absolute;
     text-align: right;
-    width: 35%;
+    width: 20em;
     box-sizing: border-box;
 }
 
